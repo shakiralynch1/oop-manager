@@ -19,15 +19,15 @@ public class App {
         Employee emp2 = new Employee("Mary Ryan", 20, 198.45);
         Employee emp3 = new Employee("Alice Reilly");
 
-        Manager m1 = new Manager("Bob", 40, 123.5, 300);
-        Manager m2 = new Manager("Martin", 35, 113.5, 200);
+        Manager mgr1 = new Manager("Bob", 40, 123.5, 300);
+        Manager mgr2 = new Manager("Martin", 35, 113.5, 200);
 
-        System.out.println("m1 salary = " + m1.getSalary());
+        System.out.println("m1 salary = " + mgr1.getSalary());
 
-        // toString() test
+        // toString() - test the versions defined in each class
         System.out.println("\ntoString() Test:");
-        System.out.println(emp1);
-        System.out.println(m1);
+        System.out.println(emp1.toString());
+        System.out.println(mgr1.toString());
         System.out.println("\n\n");
 
         // An ArrayList of type Employee can store references to both Employee objects
@@ -37,33 +37,36 @@ public class App {
         employees.add(emp1);
         employees.add(emp2);
         employees.add(emp3);
-        employees.add(m1);
-        employees.add(m2);
-
-//      Employee emp10 = null;
-//      employees.add(emp10);       // what happens?
+        employees.add(mgr1);
+        employees.add(mgr2);
 
 //      TODO#1 Write code to output all details from the arrayList (using toString())
-        System.out.println("\nDetails from arraylist:");
+        System.out.println("\nDetails from Arraylist:");
 
-//      TODO#2 Write code to display only the salaries of all employees (including Managers)
-        System.out.println("\nAll salaries:");
+//      TODO#2 Write code to display only the name & salaries of all employees
+        System.out.println("\nNames & salaries:");
+
 
 //      TODO#3 Examine the following code
-
-//        Employee e1 = m1;  // Is this OK - why or why not?
+//        The TYPE of a reference is important.
+//        A reference of type Employee can refer to a Manager because a Manager is an Employee (due to inheritance)
+//        A reference of type Manager can NOT refer to an Employee type object, as an employee is not a Manager
 //
-//        Manager m1  = e1;  // Is this OK - why or why not?
+//        Employee emp = mgr1;  // Is this OK - why or why not?
+//
+//        Manager mgr  = emp1;  // Is this OK - why or why not?
 
-//        Dynamic type & declared type of an Object reference
+//      TODO#4 Output only the Managers - use "instanceof" operator and toString()
 
-//        TODO#4 Consider testing to see if two objects are equal
+//      TODO#5  Output only the name and bonus for all Managers (but not Employees)
+        // a Cast will be required to convert the reference type from Employee to Manager
+        // in order to call the getBonus() method
 
-//        TODO#5 Output only the Managers  (use toString() )
-
-//        TODO#6 Output only the Employees (use toString() )
-
-//        TODO#5  Output only the name and bonus for all Managers (but not Employees)
+//      Note that an ArrayList can store a null entry, so the following is valid.
+//      Employee emp10 = null;
+//      employees.add(emp10);       // what happens?
+//      This means that we should normally test to make sure that a reference
+//      retrieved from an ArrayList is not null, before we use it.
 
     }
 }
